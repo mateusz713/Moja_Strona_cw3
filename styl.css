@@ -1,7 +1,12 @@
-div{
+#map{
 	width:800px;
 	height:800px;
+	display: inline-block;
 }
 body{
-	background-color: blue;
+	background-color: #fbe37a;
 }
+div{
+	display: inline-block;
+}
+
