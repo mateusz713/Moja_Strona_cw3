@@ -10,3 +10,14 @@ div{
 	display: inline-block;
 }
 
+.leaflet-control-layers{
+	height: auto;
+	width:80px;
+}
+#guzik{
+	float:right;
+	margin-right:25%;
+}
+.leaflet-control-layers-toggle{
+	margin-left:20px;
+}

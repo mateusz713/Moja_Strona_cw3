@@ -1,6 +1,17 @@
 $(document).ready(function(){
 	
 
+	    var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			mbUrl = 'https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png';
+			mbUrl2 = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+
+	    var podstawa = L.tileLayer(mbUrl2, {attribution: mbAttr}),
+	    	odcienie = L.tileLayer(mbUrl, {id: 'examples.map-20v6611k', attribution: mbAttr}),
+		    ulice = L.tileLayer(mbUrl, {id: 'examples.map-i875mjb7',   attribution: mbAttr});
+		    
+		var liniaaa = new L.geoJson(linia);
 	
 		var miejsca = new L.LayerGroup();
 
@@ -9,15 +20,6 @@ $(document).ready(function(){
 			L.marker([51.514930, 18.21134]).bindPopup('Mostek którego nie widać').addTo(miejsca),
 			L.marker([51.501090, 18.25378]).bindPopup('Fajny las').addTo(miejsca);
 
-	    var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-			mbUrl = 'https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png';
-			mbUrl2 = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-
-	    var podstawa = L.tileLayer(mbUrl2, {attribution: mbAttr}),
-	    	odcienie   = L.tileLayer(mbUrl, {id: 'examples.map-20v6611k', attribution: mbAttr}),
-		    ulice  = L.tileLayer(mbUrl, {id: 'examples.map-i875mjb7',   attribution: mbAttr});
 
 		var map = L.map('map', {
 			center: [51.516072, 18.21799],
@@ -33,12 +35,10 @@ $(document).ready(function(){
 
 		var overlays = {
 			"Miejsca": miejsca,
+			"Linia":liniaaa
 		};
 
 		L.control.layers(baseLayers, overlays).addTo(map);
-		
-		
-		
 		
 		
 		L.marker([51.51600, 18.2177]).addTo(map)
